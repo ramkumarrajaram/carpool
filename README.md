@@ -10,7 +10,9 @@
       
 To run the project use
  
-       spring-boot:run
+      spring-boot:run
+
+To create the database and tables use the .sql files under the persistance directory
 
 Environment Variables:
 
