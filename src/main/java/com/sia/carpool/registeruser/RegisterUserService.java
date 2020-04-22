@@ -1,8 +1,8 @@
 package com.sia.carpool.registeruser;
 
 import com.sia.carpool.CarPoolException;
-import com.sia.carpool.registeruser.persistance.RegisterUserEntity;
-import com.sia.carpool.registeruser.persistance.RegisterUserRepository;
+import com.sia.carpool.persistance.registeruser.RegisterUserEntity;
+import com.sia.carpool.persistance.registeruser.RegisterUserRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.sia.carpool.registeruser.persistance;
+package com.sia.carpool.persistance.registeruser;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
