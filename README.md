@@ -8,7 +8,9 @@
 
       brew install mysql@5.7
       
-To run the project use spring-boot:run
+To run the project use
+ 
+       spring-boot:run
 
 Environment Variables:
 
