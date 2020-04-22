@@ -1,4 +1,4 @@
-package com.sia.carpool.publishride.web;
+package com.sia.carpool.publishride;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetSubscriberRequest {
+public class GetPublishersInput {
 
     private String origin;
     private String destination;

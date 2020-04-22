@@ -1,6 +1,5 @@
-package com.sia.carpool.publishride.web;
+package com.sia.carpool.publishride;
 
-import com.sia.carpool.publishride.GetSubscribersResult;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,15 +12,15 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetSubscriberResponse {
+public class GetPublishersResult {
 
-    private List<GetSubscribersResult.Subscriber> subscribers;
+    private List<Publisher> publishers;
 
     @Data
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Subscriber {
+    public static class Publisher {
         private String userName;
         private String mobileNumber;
         private String origin;

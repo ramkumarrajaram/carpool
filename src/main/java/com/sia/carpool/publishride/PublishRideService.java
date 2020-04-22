@@ -40,7 +40,7 @@ public class PublishRideService {
         }
     }
 
-    public GetSubscribersResult getSubcribers(GetSubscribersInput input) {
+    public GetPublishersResult getPublishers(GetPublishersInput input) {
         List<PublishRideEntity> rideEntityList = publishRideRepository
                 .getOriginAndDestinationAndTripTime(input.getOrigin(),
                         input.getDestination(), input.getTripTime());
@@ -49,8 +49,8 @@ public class PublishRideService {
             throw new CarPoolException("No riders found");
         }
 
-        List<GetSubscribersResult.Subscriber> subscribers = rideEntityList.stream()
-                .map(publishRideEntity -> GetSubscribersResult.Subscriber
+        List<GetPublishersResult.Publisher> publishers = rideEntityList.stream()
+                .map(publishRideEntity -> GetPublishersResult.Publisher
                         .builder()
                         .userName(publishRideEntity.getUserName())
                         .mobileNumber(publishRideEntity.getMobileNumber())
@@ -61,8 +61,8 @@ public class PublishRideService {
                         .build()
                 ).collect(toList());
 
-        return GetSubscribersResult.builder()
-                .subscribers(subscribers)
+        return GetPublishersResult.builder()
+                .publishers(publishers)
                 .build();
     }
 }
