@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RegisterUserRepository extends JpaRepository<RegisterUserEntity, String> {
 
+    RegisterUserEntity findByMobileNumber(String mobileNumber);
 }
