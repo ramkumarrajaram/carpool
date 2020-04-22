@@ -11,7 +11,7 @@
     <groupId>com.sia.carpool</groupId>
     <artifactId>carpool</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sampleapp-parent</name>
+    <name>carpool</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -57,14 +57,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-java8</artifactId>
         </dependency>
     </dependencies>
 
