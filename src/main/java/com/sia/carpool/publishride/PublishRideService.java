@@ -9,6 +9,10 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
+
 @Service
 @AllArgsConstructor
 public class PublishRideService {
@@ -34,5 +38,31 @@ public class PublishRideService {
         } catch (Exception e) {
             throw new CarPoolException("Error while saving the driver details " + e.getMessage());
         }
+    }
+
+    public GetSubscribersResult getSubcribers(GetSubscribersInput input) {
+        List<PublishRideEntity> rideEntityList = publishRideRepository
+                .findByOriginAndDestinationAndTripTime(input.getOrigin(),
+                        input.getDestination(), input.getTripTime());
+
+        if(rideEntityList == null || rideEntityList.isEmpty()) {
+            throw new CarPoolException("No riders found");
+        }
+
+        List<GetSubscribersResult.Subscriber> subscribers = rideEntityList.stream()
+                .map(publishRideEntity -> GetSubscribersResult.Subscriber
+                        .builder()
+                        .userName(publishRideEntity.getUserName())
+                        .mobileNumber(publishRideEntity.getMobileNumber())
+                        .origin(publishRideEntity.getOrigin())
+                        .destination(publishRideEntity.getDestination())
+                        .numberOfSeats(publishRideEntity.getNumberOfSeats())
+                        .tripTime(publishRideEntity.getTripTime())
+                        .build()
+                ).collect(toList());
+
+        return GetSubscribersResult.builder()
+                .subscribers(subscribers)
+                .build();
     }
 }

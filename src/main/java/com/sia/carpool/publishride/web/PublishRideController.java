@@ -1,5 +1,7 @@
 package com.sia.carpool.publishride.web;
 
+import com.sia.carpool.publishride.GetSubscribersInput;
+import com.sia.carpool.publishride.GetSubscribersResult;
 import com.sia.carpool.publishride.PublishRideInput;
 import com.sia.carpool.publishride.PublishRideService;
 import lombok.AllArgsConstructor;
@@ -38,5 +40,23 @@ public class PublishRideController {
         );
 
         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+    }
+
+    @PostMapping("/getsubscribers")
+    public GetSubscriberResponse getSubscribers(
+            HttpServletRequest request,
+            @RequestBody GetSubscriberRequest publishRideRequest,
+            HttpServletResponse response) {
+        GetSubscribersInput subscribersInput = modelMapper
+                .map(publishRideRequest, GetSubscribersInput.class);
+
+        GetSubscribersResult subscribersResult = publishRideService.getSubcribers(subscribersInput);
+
+        response.setHeader(
+                CACHE_CONTROL,
+                CacheControl.noStore().getHeaderValue()
+        );
+
+        return modelMapper.map(subscribersResult, GetSubscriberResponse.class);
     }
 }
