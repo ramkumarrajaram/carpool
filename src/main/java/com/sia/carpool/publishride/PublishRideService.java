@@ -42,7 +42,7 @@ public class PublishRideService {
 
     public GetSubscribersResult getSubcribers(GetSubscribersInput input) {
         List<PublishRideEntity> rideEntityList = publishRideRepository
-                .findByOriginAndDestinationAndTripTime(input.getOrigin(),
+                .getOriginAndDestinationAndTripTime(input.getOrigin(),
                         input.getDestination(), input.getTripTime());
 
         if(rideEntityList == null || rideEntityList.isEmpty()) {
