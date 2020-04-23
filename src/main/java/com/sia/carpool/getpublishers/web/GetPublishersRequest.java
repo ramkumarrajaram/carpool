@@ -1,4 +1,4 @@
-package com.sia.carpool.publishride.web;
+package com.sia.carpool.getpublishers.web;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
