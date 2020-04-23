@@ -61,7 +61,7 @@ public class SubscribeRideService {
             PushNotificationRequest notificationRequest = PushNotificationRequest.builder()
                     .to(publisherUserEntity.getToken())
                     .notification(PushNotificationRequest.Notification.builder()
-                            .body("An user named" + rideInput.getUserName() + "has subscribed to your ride. " +
+                            .body("An user named " + rideInput.getUserName() + " has subscribed to your ride. " +
                                     "Please contact the user at " + rideInput.getSubscriberMobileNumber())
                             .title("Cabme")
                             .build())
