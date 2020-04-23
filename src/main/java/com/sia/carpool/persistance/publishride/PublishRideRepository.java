@@ -22,6 +22,8 @@ public interface PublishRideRepository extends JpaRepository<PublishRideEntity, 
 
     PublishRideEntity findByMobileNumberAndTripTime(String mobileNumber, LocalDateTime tripTime);
 
+    List<PublishRideEntity> findByMobileNumber(String mobileNumber);
+
     @Query(value = "select * from publisher_user where origin = ?1 and destination = ?2 and trip_time like ?3%", nativeQuery = true)
     List<PublishRideEntity> getOriginAndDestinationAndTripTime(String origin, String destination, LocalDate tripTime);
 }

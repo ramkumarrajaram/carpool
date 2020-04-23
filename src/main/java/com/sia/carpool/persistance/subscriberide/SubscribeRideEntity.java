@@ -2,10 +2,7 @@ package com.sia.carpool.persistance.subscriberide;
 
 
 import com.sia.carpool.persistance.publishride.PublishRideEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,7 +11,8 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Table(name = "subscriber_user")
 public class SubscribeRideEntity {
 
@@ -22,7 +20,7 @@ public class SubscribeRideEntity {
     private String mobileNumber;
     private String userName;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
             @JoinColumn(name = "publisher_number", nullable = false),
             @JoinColumn(name = "publisher_trip_time", nullable = false)

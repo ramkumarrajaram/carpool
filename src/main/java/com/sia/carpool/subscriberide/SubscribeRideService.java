@@ -42,6 +42,7 @@ public class SubscribeRideService {
                 .build();
 
         subscribeRideRepository.save(subscribeRideEntity);
+        
         driverData.setNumberOfSeats(driverData.getNumberOfSeats() - 1);
 
         publishRideRepository.save(driverData);
