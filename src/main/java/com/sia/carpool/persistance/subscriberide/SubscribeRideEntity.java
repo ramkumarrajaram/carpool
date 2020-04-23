@@ -17,6 +17,9 @@ import javax.persistence.*;
 public class SubscribeRideEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String mobileNumber;
     private String userName;
 
