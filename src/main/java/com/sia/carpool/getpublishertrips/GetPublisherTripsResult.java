@@ -1,4 +1,4 @@
-package com.sia.carpool.getsubscribers;
+package com.sia.carpool.getpublishertrips;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetSubscribersForDriverResult {
+public class GetPublisherTripsResult {
 
     private List<TripDetail> tripDetails;
 

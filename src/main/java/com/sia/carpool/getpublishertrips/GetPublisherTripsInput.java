@@ -1,4 +1,4 @@
-package com.sia.carpool.getsubscribers;
+package com.sia.carpool.getpublishertrips;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetSubscribersForDriverInput {
+public class GetPublisherTripsInput {
 
     private String mobileNumber;
 }

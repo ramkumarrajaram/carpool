@@ -1,6 +1,6 @@
-package com.sia.carpool.getsubscribers.web;
+package com.sia.carpool.getpublishertrips.web;
 
-import com.sia.carpool.getsubscribers.GetSubscribersForDriverResult;
+import com.sia.carpool.getpublishertrips.GetPublisherTripsResult;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetSubscribersForDriverResponse {
+public class GetPublisherTripsResponse {
 
     private List<TripDetail> tripDetails;
 
@@ -26,7 +26,7 @@ public class GetSubscribersForDriverResponse {
         private String destination;
         private LocalDateTime tripTime;
 
-        private List<GetSubscribersForDriverResult.Subscriber> subscribers;
+        private List<GetPublisherTripsResult.Subscriber> subscribers;
     }
 
     @Data

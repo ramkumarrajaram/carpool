@@ -1,8 +1,8 @@
-package com.sia.carpool.getsubscribers.web;
+package com.sia.carpool.getpublishertrips.web;
 
-import com.sia.carpool.getsubscribers.GetSubscriberForDriverService;
-import com.sia.carpool.getsubscribers.GetSubscribersForDriverInput;
-import com.sia.carpool.getsubscribers.GetSubscribersForDriverResult;
+import com.sia.carpool.getpublishertrips.GetPublisherTripsService;
+import com.sia.carpool.getpublishertrips.GetPublisherTripsInput;
+import com.sia.carpool.getpublishertrips.GetPublisherTripsResult;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.CacheControl;
@@ -12,25 +12,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 import static org.springframework.http.HttpHeaders.CACHE_CONTROL;
 
 @RestController
 @AllArgsConstructor
 @RequestMapping("/get")
-public class GetSubscribersForDriversController {
+public class GetPublisherTripsController {
 
     private ModelMapper modelMapper;
-    private GetSubscriberForDriverService getSubscriberForDriverService;
+    private GetPublisherTripsService getPublisherTripsService;
 
-    @PostMapping("/subscribers")
-    public GetSubscribersForDriverResponse getSubscribers(@RequestBody GetSubscribersForDriverRequest request,
-                               HttpServletResponse response) {
-        GetSubscribersForDriverInput driverInput = modelMapper
-                .map(request, GetSubscribersForDriverInput.class);
+    @PostMapping("/publisher/trips")
+    public GetPublisherTripsResponse getSubscribers(@RequestBody GetPublisherTripsRequest request,
+                                                    HttpServletResponse response) {
+        GetPublisherTripsInput driverInput = modelMapper
+                .map(request, GetPublisherTripsInput.class);
 
-        GetSubscribersForDriverResult result = getSubscriberForDriverService
+        GetPublisherTripsResult result = getPublisherTripsService
                 .getSubscribers(driverInput);
 
         response.setHeader(
@@ -38,6 +37,6 @@ public class GetSubscribersForDriversController {
                 CacheControl.noStore().getHeaderValue()
         );
 
-        return modelMapper.map(result, GetSubscribersForDriverResponse.class);
+        return modelMapper.map(result, GetPublisherTripsResponse.class);
     }
 }
