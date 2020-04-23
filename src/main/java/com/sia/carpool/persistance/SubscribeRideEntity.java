@@ -23,6 +23,9 @@ public class SubscribeRideEntity {
     private String userName;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "publisher_number", nullable = false)
+    @JoinColumns({
+            @JoinColumn(name = "publisher_number", nullable = false),
+            @JoinColumn(name = "publisher_trip_time", nullable = false)
+    })
     private PublishRideEntity rider;
 }

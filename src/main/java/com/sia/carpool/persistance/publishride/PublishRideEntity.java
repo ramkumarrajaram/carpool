@@ -16,13 +16,15 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Table(name = "publisher_user")
+@IdClass(PublishRideId.class)
 public class PublishRideEntity {
 
     @Id
     private String mobileNumber;
+    @Id
+    private LocalDateTime tripTime;
     private String origin;
     private String destination;
-    private LocalDateTime tripTime;
     private int numberOfSeats;
     private String userName;
 
