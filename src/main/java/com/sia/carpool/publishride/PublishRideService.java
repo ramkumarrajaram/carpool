@@ -1,6 +1,8 @@
 package com.sia.carpool.publishride;
 
+import com.sia.carpool.CarPoolBadRequestException;
 import com.sia.carpool.CarPoolException;
+import com.sia.carpool.CarPoolUnAuthorisedException;
 import com.sia.carpool.persistance.publishride.PublishRideEntity;
 import com.sia.carpool.persistance.publishride.PublishRideRepository;
 import com.sia.carpool.persistance.registeruser.RegisterUserEntity;
@@ -62,6 +64,8 @@ public class PublishRideService {
             rideEntityList = publishRideRepository
                     .getOriginAndDestinationAndTripTime(input.getOrigin(),
                             input.getDestination(), input.getTripTime());
+        } else {
+            throw new CarPoolBadRequestException("Input criteria mismatch");
         }
 
         if (rideEntityList == null || rideEntityList.isEmpty()) {
