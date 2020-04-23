@@ -55,8 +55,8 @@ public class PublishRideService {
         } else if (input.getTripTime() != null && input.getOrigin() == null
                 && input.getDestination() == null) {
             rideEntityList = publishRideRepository.getByTripTime(input.getTripTime());
-        } else if (input.getTripTime() != null && input.getOrigin() != null
-                && input.getDestination() == null) {
+        } else if (input.getOrigin() != null && input.getDestination() != null
+                && input.getTripTime() == null) {
             rideEntityList = publishRideRepository
                     .findByOriginAndDestination(input.getOrigin(), input.getDestination());
         } else if (input.getTripTime() != null && input.getOrigin() != null
