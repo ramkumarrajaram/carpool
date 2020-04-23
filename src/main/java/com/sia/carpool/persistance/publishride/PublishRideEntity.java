@@ -1,6 +1,6 @@
 package com.sia.carpool.persistance.publishride;
 
-import com.sia.carpool.persistance.SubscribeRideEntity;
+import com.sia.carpool.persistance.subscriberide.SubscribeRideEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

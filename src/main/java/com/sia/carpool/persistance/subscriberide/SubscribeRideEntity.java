@@ -1,4 +1,4 @@
-package com.sia.carpool.persistance;
+package com.sia.carpool.persistance.subscriberide;
 
 
 import com.sia.carpool.persistance.publishride.PublishRideEntity;
