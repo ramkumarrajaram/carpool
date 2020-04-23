@@ -16,4 +16,5 @@ public class GetPublishersRequest {
     private String origin;
     private String destination;
     private LocalDate tripTime;
+    private int totalSeatsRequired;
 }

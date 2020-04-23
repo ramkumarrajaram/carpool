@@ -17,4 +17,5 @@ public class SubscribeRideInput {
     private String subscriberMobileNumber;
     private LocalDateTime tripTime;
     private String userName;
+    private int totalSeatsRequired;
 }

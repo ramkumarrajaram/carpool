@@ -18,15 +18,15 @@ public interface PublishRideRepository extends JpaRepository<PublishRideEntity, 
     @Query(value = "select * from publisher_user where trip_time like ?1%", nativeQuery = true)
     List<PublishRideEntity> getByTripTime(LocalDate tripTime);
 
-    List<PublishRideEntity> findByOriginAndDestinationAndNumberOfSeatsGreaterThan(String origin,
-                                                                                  String destination, int size);
+    List<PublishRideEntity> findByOriginAndDestinationAndNumberOfSeatsGreaterThanEqual(String origin,
+                                                                                       String destination, int size);
 
     PublishRideEntity findByMobileNumberAndTripTime(String mobileNumber, LocalDateTime tripTime);
 
     List<PublishRideEntity> findByMobileNumber(String mobileNumber);
 
     @Query(value = "select * from publisher_user where origin = ?1 " +
-            "and destination = ?2 and trip_time like ?3% and number_of_seats > ?4", nativeQuery = true)
+            "and destination = ?2 and trip_time like ?3% and number_of_seats >= ?4", nativeQuery = true)
     List<PublishRideEntity> getOriginAndDestinationAndTripTime(String origin, String destination,
                                                                LocalDate tripTime, int size);
 }

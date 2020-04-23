@@ -1,5 +1,6 @@
 package com.sia.carpool.subscriberide;
 
+import com.sia.carpool.CarPoolException;
 import com.sia.carpool.CarPoolUnAuthorisedException;
 import com.sia.carpool.persistance.publishride.PublishRideEntity;
 import com.sia.carpool.persistance.publishride.PublishRideRepository;
@@ -31,6 +32,10 @@ public class SubscribeRideService {
                 .findByMobileNumberAndTripTime(rideInput.getDriverMobileNumber(),
                         rideInput.getTripTime());
 
+        if(rideInput.getTotalSeatsRequired() > driverData.getNumberOfSeats()) {
+            throw new CarPoolException("Insufficient seats");
+        }
+
         if (driverData == null) {
             throw new CarPoolUnAuthorisedException("Unauthorised Driver" );
         }
@@ -42,8 +47,8 @@ public class SubscribeRideService {
                 .build();
 
         subscribeRideRepository.save(subscribeRideEntity);
-        
-        driverData.setNumberOfSeats(driverData.getNumberOfSeats() - 1);
+
+        driverData.setNumberOfSeats(driverData.getNumberOfSeats() - rideInput.getTotalSeatsRequired());
 
         publishRideRepository.save(driverData);
     }
