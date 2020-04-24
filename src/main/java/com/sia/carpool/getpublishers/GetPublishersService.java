@@ -39,20 +39,24 @@ public class GetPublishersService {
             throw new CarPoolException("No riders found");
         }
 
-        List<GetPublishersResult.Publisher> publishers = rideEntityList.stream()
-                .map(publishRideEntity -> GetPublishersResult.Publisher
-                        .builder()
-                        .userName(publishRideEntity.getUserName())
-                        .mobileNumber(publishRideEntity.getMobileNumber())
-                        .origin(publishRideEntity.getOrigin())
-                        .destination(publishRideEntity.getDestination())
-                        .numberOfSeats(publishRideEntity.getNumberOfSeats())
-                        .tripTime(publishRideEntity.getTripTime())
-                        .build()
-                ).collect(toList());
+        List<GetPublishersResult.Publisher> publishers = getPublishers(rideEntityList);
 
         return GetPublishersResult.builder()
                 .publishers(publishers)
                 .build();
+    }
+
+    private List<GetPublishersResult.Publisher> getPublishers(List<PublishRideEntity> rideEntityList) {
+        return rideEntityList.stream()
+                    .map(publishRideEntity -> GetPublishersResult.Publisher
+                            .builder()
+                            .userName(publishRideEntity.getUserName())
+                            .mobileNumber(publishRideEntity.getMobileNumber())
+                            .origin(publishRideEntity.getOrigin())
+                            .destination(publishRideEntity.getDestination())
+                            .numberOfSeats(publishRideEntity.getNumberOfSeats())
+                            .tripTime(publishRideEntity.getTripTime())
+                            .build())
+                    .collect(toList());
     }
 }
